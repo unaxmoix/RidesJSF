@@ -8,4 +8,13 @@ import jakarta.inject.Named;
 @SessionScoped
 public class ChoiceBean implements Serializable{
 	
+	public ChoiceBean(){
+	}
+	public String create(String m) {
+		return m;
+	}
+	public String query() {
+		return "query";
+	}
+	
 }
