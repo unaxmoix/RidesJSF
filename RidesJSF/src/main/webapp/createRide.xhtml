@@ -3,13 +3,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core">
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
 <f:view>
 <h:head><title>Create Ride</title></h:head>
 <h:body>
 <h:form>
 <h3>C</h3>
-
+<table>
+<tr>
+<td>Nondik:</td>
+<td><h:inputText id="nondik" value="#{create.nondik}"></h:inputText></td>
+<td><h:message for="nondik" style="color:red" /></td>
+</tr>
+<tr>
+<td>Nora:</td>
+<td><h:inputText id="nora" value="#{create.nora}"></h:inputText></td>
+<td><h:message for="nora" style="color:red" /></td>
+</tr>
+<tr>
+<td>Eserleku kopurua:</td>
+<td><h:inputText id="eserKop" value="#{create.eserKop}">
+<f:validateRegex pattern="^[0-9]+$"/>
+</h:inputText></td>
+<td><h:message for="eserKop" style="color:red" /></td>
+</tr>
+<tr>
+<td>Prezioa:</td>
+<td><h:inputText id="prezioa" value="#{create.prezioa}">
+<f:validateRegex pattern="^[0-9]+([.,][0-9]+)?$"/>
+</h:inputText></td>
+<td><h:message for="prezioa" style="color:red" /></td>
+</tr>
+<tr>
+<td>Data:</td>
+<td><p:calendar id="data" value="#{create.data}" navigator="false" mode="popup" mindate="#{create.getTomorrow}">
+</p:calendar></td>
+<td><h:message for="data" style="color:red" /></td>
+</tr>
+</table>
+<p>
+<h:commandButton value="Itzuli" action="#{menu.itzuli}"/>
+</p>
+<p>
+<h:commandButton value="Sortu" action="#{create.createRide}"/>
+</p>
 </h:form>
 </h:body>
 </f:view>
