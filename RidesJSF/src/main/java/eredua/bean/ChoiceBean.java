@@ -12,17 +12,12 @@ public class ChoiceBean implements Serializable{
 	private static Driver driver=new Driver("driver3@gmail.com","Test Driver");
 	public ChoiceBean(){
 	}
-	public String create() {
-		return "create";
-	}
+
 	public Driver getDriver() {
 		return driver;
 	}
 	public void setDriver(Driver driver) {
 		this.driver = driver;
-	}
-	public String query() {
-		return "query";
 	}
 	public String itzuli() {
 		return "menu";

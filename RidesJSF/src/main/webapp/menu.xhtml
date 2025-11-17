@@ -3,15 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core">
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
 <f:view>
 <h:head><title>Menua</title></h:head>
 <h:body>
 <h:form>
 <h3>Aukeratu egitekoa:</h3>
 <p>
-<h:commandButton value="Sortu bidaia" action="#{choice.create}"/>
-<h:commandButton value="Kontsultatu bidaiak" action="#{choice.query}"/>
+<h:commandButton value="Sortu bidaia" action="#{create.create}"/>
+<h:commandButton value="Kontsultatu bidaiak" action="#{query.query}" />
 </p>
 </h:form>
 </h:body>

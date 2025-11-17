@@ -1,32 +1,21 @@
 package eredua.bean;
-
-import java.io.Serializable;
-
-import businessLogic.BLFacade;
-import businessLogic.BLFacadeImplementation;
+import businessLogic.*;
 import dataAccess.DataAccess;
-import jakarta.enterprise.context.SessionScoped;
-import jakarta.inject.Named;
 
-@Named("facade")
-@SessionScoped
-public class FacadeBean implements Serializable{
-	
-	 private static BLFacade facadeBL;
-	 public FacadeBean() {
-		 if(facadeBL==null) {
-			 facadeBL=new BLFacadeImplementation (new DataAccess());
-		 }
-	 }
-	 public static BLFacade getFacadeBL() {
-		 return facadeBL;
-	 }
-	 public static void setFacadeBL(BLFacade facadeBL) {
-		 FacadeBean.facadeBL = facadeBL;
-	 }
-	
-	
-	
-	
-	
+public class FacadeBean {
+
+	private static FacadeBean singleton = new FacadeBean();
+	private static BLFacade facadeInterface= new BLFacadeImplementation(new DataAccess());
+
+	private FacadeBean() {
+		try {
+			facadeInterface = new BLFacadeImplementation(new DataAccess());
+		} catch (Exception e) {
+			System.out.println("FacadeBean: negozioaren logika sortzean errorea: " + e.getMessage());
+		}
+	}
+
+	public static BLFacade getBusinessLogic() {
+		return facadeInterface;
+	}
 }
